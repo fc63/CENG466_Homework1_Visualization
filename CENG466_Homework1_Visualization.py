@@ -9,7 +9,7 @@ except ImportError:
     import pygame
 
 graph = {
-    'A': {'B': 4, 'C': 7},
+    'A': {'C': 7, 'B': 4},
     'B': {'A': 4, 'C': 2, 'E': 6},
     'C': {'A': 7, 'B': 2, 'D': 3, 'F': 8},
     'D': {'C': 3, 'G': 9},
