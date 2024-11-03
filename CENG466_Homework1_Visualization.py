@@ -59,11 +59,8 @@ def bfs(graph, start, goal, visited):
         visitedArray[node] = True
         visited.append(node)
 
-        if parent[node] is not None:
-            for edge_node, edge_cost in graph[parent[node]].items():
-                if edge_node == node:
-                    exploration_cost += edge_cost
-                    break
+        if len(path) > 1:
+            exploration_cost += graph[path[-2]][node]
 
         steps.append((node, path, cost, exploration_cost, visited[:]))
 
@@ -96,11 +93,8 @@ def dfs(graph, start, goal, visited):
         visitedArray[node] = True
         visited.append(node)
 
-        if parent[node] is not None:
-            for edge_node, edge_cost in graph[parent[node]].items():
-                if edge_node == node:
-                    exploration_cost += edge_cost
-                    break
+        if len(path) > 1:
+            exploration_cost += graph[path[-2]][node]
 
         steps.append((node, path, cost, exploration_cost, visited[:]))
 
