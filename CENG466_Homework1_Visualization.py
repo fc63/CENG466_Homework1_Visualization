@@ -40,6 +40,11 @@ positions = {
     'I': (400, 400), 'J': (600, 400)
 }
 
+"""
+direkt queue mantığı ile keşif yapar ve path belirler. Firts in First Out Algoritması...
+en az node'u ziyaret eden path'i bulur. costa bakmaz. path'in node sayısını düşük tutmayı amaçlar
+kuyruktaki ilk elemana ilerler. onu da graph değişkenindeki sıralamaya göre alır.
+"""
 def bfs(graph, start, goal, visited):
     queue = deque([(start, [start], 0)])
     visitedArray = {node: False for node in graph}
@@ -72,6 +77,11 @@ def bfs(graph, start, goal, visited):
 
     return None, None, steps
 
+"""
+stack veri yapısı mantığı ile hareket eder.
+her node'un komşularını LIFO mnatığı ile ziyaret eder.
+bu da koddaki graph değişkenindeki sırayla alınır
+"""
 def dfs(graph, start, goal, visited):
     stack = [(start, [start], 0)]
     visitedArray = {node: False for node in graph}
@@ -104,6 +114,10 @@ def dfs(graph, start, goal, visited):
 
     return None, None, steps
 
+"""
+priotiy queue mantığı ile ilerler
+costu en az olan pathi bulur
+"""
 def ucs(graph, start, goal, visited):
     queue = [(0, start, [start])]
     visitedArray = {node: False for node in graph}
@@ -201,13 +215,13 @@ def choose_algorithm():
                 pygame.quit()
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_1:
+                if event.key == pygame.K_1 or event.key == pygame.K_KP1:
                     visited = []
                     return bfs(graph, 'A', 'J', visited), "BFS"
-                elif event.key == pygame.K_2:
+                elif event.key == pygame.K_2 or event.key == pygame.K_KP2:
                     visited = []
                     return dfs(graph, 'A', 'J', visited), "DFS"
-                elif event.key == pygame.K_3:
+                elif event.key == pygame.K_3 or event.key == pygame.K_KP3:
                     visited = []
                     return ucs(graph, 'A', 'J', visited), "UCS"
 
