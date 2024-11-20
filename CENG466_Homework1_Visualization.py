@@ -238,8 +238,6 @@ def main():
                     step_index += 1
                 elif event.key == pygame.K_LEFT and step_index > 0:
                     step_index -= 1
-                elif event.key == pygame.K_SPACE:
-                    step_index = 0
 
         pygame.display.flip()
         clock.tick(10)
