@@ -107,6 +107,8 @@ def dfs(graph, start, goal, visited):
 """
 priotiy queue mantığı ile ilerler
 costu en az olan pathi bulur
+min-heap veri yapısı kullandığımız için kuyruktan çıkacak ilk eleman
+her zaman kuyrukta costu en ucuz olan eleman olacak.
 """
 def ucs(graph, start, goal, visited):
     queue = [(0, start, [start])]
