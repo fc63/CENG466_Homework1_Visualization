@@ -48,7 +48,6 @@ kuyruktaki ilk elemana ilerler. onu da graph değişkenindeki sıralamaya göre 
 def bfs(graph, start, goal, visited):
     queue = deque([(start, [start], 0)])
     visitedArray = {node: False for node in graph}
-    parent = {node: None for node in graph}
     exploration_cost = 0
     steps = []
 
@@ -70,7 +69,6 @@ def bfs(graph, start, goal, visited):
         for neighbor, weight in graph[node].items():
             if not visitedArray[neighbor]:
                 queue.append((neighbor, path + [neighbor], cost + weight))
-                parent[neighbor] = node
 
     return None, None, steps
 
@@ -82,7 +80,6 @@ bu da koddaki graph değişkenindeki sırayla alınır
 def dfs(graph, start, goal, visited):
     stack = [(start, [start], 0)]
     visitedArray = {node: False for node in graph}
-    parent = {node: None for node in graph}
     exploration_cost = 0
     steps = []
 
@@ -104,7 +101,6 @@ def dfs(graph, start, goal, visited):
         for neighbor, weight in graph[node].items():
             if not visitedArray[neighbor]:
                 stack.append((neighbor, path + [neighbor], cost + weight))
-                parent[neighbor] = node
 
     return None, None, steps
 
